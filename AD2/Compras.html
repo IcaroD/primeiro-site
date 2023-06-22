@@ -1,0 +1,292 @@
+<html><head><title>Resfriamento Global</title>
+<base target="_blank">
+<link rel="stylesheet" type="text/css" href="RefriGlobal.css">
+<link href="https://fonts.googleapis.com/css?family=Karla|Stoke" rel="stylesheet"><script language="javascript">
+var tabTipos = [
+     "Split", 
+     "Parede",
+     "Portátil",
+];
+var tabProdutos = [
+     [0, "Springer Split 12000", 1680],
+     [1, "Springer Midea 12000", 1890],
+     [1, "Consul 7500", 1300],
+     [2, "Elgin Eco Cube 9000", 1900]
+];
+function Compra(f) {
+     var total = (f.TxtTotal.value > 0) ? 
+     parseFloat(f.TxtTotal.value) : 0;
+     var nl = f.selProduto.selectedIndex - 1;
+     var tp = tabProdutos[nl][0];
+     f.listaPedidos.value += tabTipos[tp] + " - " 
+     + tabProdutos[nl][1] + "\n";
+     f.TxtTotal.value = total + tabProdutos[nl][2];
+}
+</script>
+
+</head>
+<body>
+<header>
+<address class="ender">
+ Av. Novaya Zemlya, 1870<br>
+ Cel: (21) 98765-4321<br>
+ <a href="mailto:contato@resfriglob.com.br">
+ contato@resfriglob.com.br</a></address>
+<img class="imgLogo" src="Imagens/ResfGlobLogoDeitado.png">
+</header>
+<nav>
+<ul><li><a href="RefriGlobal.html">Apresentação</a></li>
+ <li><a href="Tipos.html">Tipos</a></li>
+ <li><a href="Estoque.html">Estoque</a></li>
+ <li><a href="Cadastro.html">Cadastro</a></li>
+ <li><a href="Compras.html">Compras</a></li>
+</ul>
+</nav>
+<section>
+<div class="FormBox">
+<h3 class="Titulo">Compras</h3>
+<form method="POST">
+<fieldset class="FSLinInteira">
+<legend>Identificação</legend>
+<div class="LinhaForm">
+<span class="ColEsq" id="loginCad">
+<label for="idEmail" class="LabBox">E-mail:</label>
+<input type="email" class="InpBoxGnd" id="idEmail" name="TxtEmail" required=""></span>
+<span class="ColDir" id="senhaCad">
+<label for="idSenha" class="LabBox">Senha:</label>
+<input id="idSenha" class="InpBoxMed" type="password" name="TxtSenha" required=""></span>
+</div>
+<div class="LinhaForm">
+<b><i>Se você ainda não tem cadastro clique 
+<a href="5_Cadastro.html">aqui</a></i></b>&nbsp;!</div>
+</fieldset>
+<fieldset class="FSLinInteira">
+<legend> Lista de Compras&nbsp;</legend>
+<div class="LinhaForm">
+<span class="ColEsq" id="lisSelProd">
+<label for="idEmail" class="LabBox">Produtos: </label>
+<select name="selProduto" id="selProduto">
+<option> ----- </option>
+<optgroup label="Split"><option>Springer Split 12000</option>
+</optgroup>
+<optgroup label="Parede"><option>Springer Midea 12000</option>
+<option>Consul 7500</option>
+</optgroup>
+<optgroup label="Portátil"><option>Elgin Eco Cube 9000</option>
+</optgroup>
+
+
+
+
+</select>
+</span>
+<span class="ColDir" id="btnIncluir">
+<input type="button" value="Incluir" onclick="Compra(this.form);">
+</span>
+</div>
+<div class="LinhaForm" id="boxPedidos">
+<textarea name="listaPedidos" readonly="" id="lisPedArea"></textarea>
+</div>
+<div class="LinhaForm">
+<span class="ColDir">
+<label class="LabBox" for="TxtTotal">Valor: R$</label>
+<input type="text" name="TxtTotal" readonly="" id="TxtTotal" class="InpBoxMed"></span></div>
+</fieldset>
+<fieldset class="FSLinInteira">
+<legend> Dados do Cartão&nbsp;</legend>
+<fieldset class="FSColDir" id="fSBandeira">
+<legend> Bandeira:</legend>
+<label><input type="radio" name="RadBand" checked="">Visa</label><br>
+<label><input type="radio" name="RadBand">Master</label><br>
+<label><input type="radio" name="RadBand">Elo</label>
+</fieldset>
+<div class="ColEsq" id="numCartao">
+<label class="LabBox" for="TxtNumCC01">Número:</label>
+<input type="text" name="TxtNumCC01" id="TxtNumCC01" maxlength="4" class="numDD">&nbsp;
+<input type="text" name="TxtNumCC02" class="numDD" maxlength="4">&nbsp;
+<input type="text" name="TxtNumCC03" class="numDD" maxlength="4"> &nbsp;
+<input type="text" name="TxtNumCC04" class="numDD" maxlength="4">
+</div>
+<div class="ColEsq" id="valCartao">
+<label class="LabBox" for="mesVal">Validade:</label>
+<input type="number" name="TxtMesVal" id="mesVal" min="1" max="12" class="numDD" value="1"> /
+<input type="number" name="TxtAnoVal" value="2022" min="2022" max="2036" class="numQD"></div>
+<div class="ColEsq" id="boxParcel">
+<label class="LabBox" for="numParcel">Parcelas:</label>
+<input type="number" name="TxtMesVal" id="numParcel" min="1" max="6" class="numDD" value="1"> x Sem Juros</div>
+</fieldset>
+<div class="botoes">
+ <input type="submit" value="Confirmar">
+ <input type="reset" value="Limpar">
+</div>
+</form></div>
+</section>
+<style>
+body {
+ color: #99EEEE;
+ font-size: 16px;
+ background-color: #4488AA;
+ font-family: stoke, Lucida Bright, liberation;
+}
+header { 
+ display:block; 
+ margin-bottom: 1px;
+}
+nav {
+ display:block; 
+ width: 20%; 
+ float: left;
+}
+section {
+ display:block; 
+ width: 70%;
+ float: right;
+}
+.ender {
+ float: right;
+ text-align: right;
+ font-size: 15px;
+ line-height: 140%; 
+ font-family: karla, verdana, ubuntu;
+}
+img.imgLogo {
+ padding-bottom: 15px; 
+ border-bottom: 3px solid #FFFFFF;
+ margin-bottom: 6px;
+}
+a:link { color:#FFFFFF; text-decoration:none; }
+a:visited { color:#99EEEE; text-decoration:none; }
+nav ul {
+ color: #FFFFFF;
+ margin-top: 40px;
+ line-height: 230%; 
+ font-size: 20px;
+ font-family: karla, verdana, ubuntu;
+ list-style-image: url('Imagens/BrilhoMark.png');
+}
+div.apres {
+ text-align: center;
+ font-size: 18px;
+}
+.listaTipos {
+ color: #FFFFFF;
+ line-height: 180%;
+ padding: 10px 10px 10px 50px;
+}
+.listaTipos ul {
+ color: #99FFFF;
+ list-style-type: disc; 
+}
+.tabInfo {
+ color: #000066;
+ margin-top: 6px;
+ border-collapse: collapse;
+ background-color: #FFFFFF; 
+ font-size: 15px;
+ font-family: karla, verdana, ubuntu;
+}
+.tabInfo td, .tabInfo th {
+ border: 2px solid #000055;
+ padding: 6px 12px 6px 12px;
+}
+.tabInfo .linTH {
+ color: #FFFFFF;
+ text-align: center;
+ vertical-align: middle;
+ background-color: #004499;
+}
+.tabInfo .colTH {
+ color: #FFFFFF;
+ text-align: left;
+ background-color: #0066DD;
+}
+.tabInfo .preco {
+ color: #CC0000;
+}
+.FormBox {
+ width: 520px;
+ padding: 10px;
+ margin-top: 10px;
+ text-align: center;
+ background-color: #0066DD;
+ border: 3px solid #000055;
+ font-size: 16px;
+ font-family: karla, verdana, ubuntu;
+}
+.FSLinInteira {
+ color: white;
+ width: 490px;
+ text-align: left;
+}
+.FSColEsq {
+ width: 210px;
+ float: left;
+ text-align: center;
+}
+.FSColDir {
+ width: 210px;
+ float: right;
+ text-align: center;
+}
+.LinhaForm {
+ margin: 0px;
+ height: 30px;
+ padding: 6px 3px 0px 3px;
+}
+.ColEsq {
+ width: 180px;
+ float: left;
+ display: block;
+}
+.ColDir {
+ width: 180px;
+ float: right;
+ display: block;
+}
+.LabBox {
+ width: 80px;
+ float: left;
+ display: block;
+}
+.InpBoxGnd {
+ width: 384px;
+ float: right;
+ display: block;
+}
+.InpBoxMed {
+ width: 80px;
+ float: right;
+ display: block;
+}
+.numDD { width:35px; }
+.numQD { width:50px; }
+.botoes {
+ text-align: right;
+ margin: 20px 10px 0px 10px;
+}
+#linhaEnder { height: 50px; }
+#inpEnder { height: 80%; width: 394px; }
+#loginCad { width: 260px; }
+#idEmail { width: 160px; }
+#senhaCad { width: 180px; }
+#lisSelProd { width: 370px; }
+#selProduto { width: 75%; }
+#btnIncluir { width: 70px; }
+#boxPedidos { height: 100px; }
+#lisPedArea {
+ height: 90%;
+ width: 100%;
+}
+#fSBandeira {
+ width: 80px;
+ text-align: left;
+}
+#numCartao {
+ width: 350px;
+ height: 35px;
+ padding-top: 10px;
+}
+#valCartao { width: 230px; height: 35px; }
+#boxParcel { width: 230px; height: 30px; }
+</style>
+</body></html>
