@@ -1,0 +1,56 @@
+<html><head><title>Resfriamento Global</title>
+<base target="_blank">
+<link rel="stylesheet" type="text/css" href="RefriGlobal.css">
+<link href="https://fonts.googleapis.com/css?family=Karla|Stoke" rel="stylesheet">
+<script>
+var tabProdutos = [
+     ["SpringerSplit 12000", 1680],
+     ["SpringerMidea12000", 1890],
+     ["Consul7500", 1300],
+     ["ElginEcoCube9000", 1900]]
+function Mostra(ind) {
+ var foto = document.getElementById("imgCad");
+ var prec = document.getElementById("prcCad");
+ foto.src = "imagens/" + tabProdutos[ind][0] + ".png";
+ prec = "R$ " + tabProdutos[ind][1] + ",00";
+}
+</script>
+
+</head>
+<body>
+<header>
+<address class="ender">
+ Av. Novaya Zemlya, 1870<br>
+ Cel: (21) 98765-4321<br>
+ <a href="mailto:contato@resfriglob.com.br">
+ contato@resfriglob.com.br</a></address>
+<img class="imgLogo" src="Imagens/ResfGlobLogoDeitado.png">
+</header>
+<nav>
+<ul><li><a href="RefriGlobal.html">Apresentação</a></li>
+ <li><a href="Tipos.html">Tipos</a></li>
+ <li><a href="Estoque.html">Estoque</a></li>
+ <li><a href="Cadastro.html">Cadastro</a></li>
+ <li><a href="Compras.html">Compras</a></li>
+</ul>
+</nav>
+<section>
+<table class="tabInfo">
+<tbody>
+<tr><th class="linTH">Modelo</th>
+ <th class="linTH">Foto</th>
+ <th class="linTH">Preço</th></tr>
+<tr><th class="colTH"><a target="_self" href="javascript:Mostra(0);">Springer Split 12000</a></th>
+ <td rowspan="4"><img id="imgCad" src="imagens/vazio.jpg"></td>
+ <td id="prcCad" class="preco" rowspan="4"></td></tr>
+<tr>
+    <th class="colTH"><a target="_self" href="javascript:Mostra(1);">Springer Parede Midea 12000</a></th>
+ </tr>
+<tr><th class="colTH"><a target="_self" href="javascript:Mostra(3);">Consul Parede 7500</a></th>
+</tr><tr>
+    <th class="colTH"><a target="_self" href="javascript:Mostra(4);">Elgin Portatil 9000</a></th>
+</tr>
+</tbody></table>
+<br>
+</section>
+</body></html>
